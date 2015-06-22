@@ -93,6 +93,9 @@ class CommandLineOptions {
   /// Whether to emit hints from [strongMode] analysis.
   final bool strongHints;
 
+  /// DEP 30
+  final bool enableNonNullTypes; //DEP30
+  
   /// Initialize options from the given parsed [args].
   CommandLineOptions._fromArgs(ArgResults args,
       Map<String, String> definedVariables,
@@ -105,6 +108,7 @@ class CommandLineOptions {
         enableNullAwareOperators = args['enable-null-aware-operators'],
         enableStrictCallChecks = args['enable-strict-call-checks'],
         enableTypeChecks = args['enable_type_checks'],
+        enableNonNullTypes = args['enable-non-null'], //DEP30
         ignoreUnrecognizedFlags = args['ignore-unrecognized-flags'],
         lints = args['lints'],
         log = args['log'],
@@ -257,6 +261,12 @@ class CommandLineOptions {
           defaultsTo: false,
           negatable: false,
           hide: true)
+      //[DEP30
+      ..addFlag('enable-non-null',
+          help: 'Enable support for non-null types (DEP 30).',
+          defaultsTo: false,
+          negatable: false,
+          hide: true) //DEP30]
       ..addFlag('enable-strict-call-checks',
           help: 'Fix issue 21938.',
           defaultsTo: false,

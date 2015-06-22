@@ -347,6 +347,7 @@ class Driver {
     contextOptions.cacheSize = _maxCacheSize;
     contextOptions.hint = !options.disableHints;
     contextOptions.enableNullAwareOperators = options.enableNullAwareOperators;
+    contextOptions.enableNonNullTypes = options.enableNonNullTypes; //DEP30
     contextOptions.enableStrictCallChecks = options.enableStrictCallChecks;
     contextOptions.analyzeFunctionBodiesPredicate = dietParsingPolicy;
     contextOptions.generateImplicitErrors = options.showPackageWarnings;
